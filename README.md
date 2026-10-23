@@ -27,13 +27,34 @@ ML_Framework_for_OSR/
 │   ├── datasets/               # Dataset & sample-scale configurations (10-shot, 100-sample, 500-sample, full)
 │   ├── methods/                # Method & ablation configurations
 │   └── experiments/            # Multi-GPU sweep configurations
+├── osr_gui.sh                  # One-key launcher for Interactive Shell Terminal GUI (TUI)
 └── scripts/
+    ├── tui.py                  # Interactive Curses Terminal GUI (Wizard, GPU Monitor, Results Viewer)
     ├── train.py                # Single training / evaluation entry point
     ├── sweep.py                # Multi-GPU (dual Tesla P40) parallel queue scheduler
     └── aggregate.py            # Aggregate runs into Markdown, CSV, and LaTeX (mean ± std) tables
 ```
 
-## 2. Quick Start
+## 2. Interactive Shell Terminal GUI (Recommended)
+
+Launch the interactive terminal interface directly in your SSH shell:
+
+```bash
+cd /mnt/sbd1_newdisk/project_test_1_22/osr_bench
+./osr_gui.sh
+# or:
+conda run --no-capture-output -n Taopy310 python scripts/tui.py
+```
+
+The TUI provides:
+1. **Live GPU Status Header**: Real-time memory, utilization, and temperature for both Tesla P40 GPUs (`GPU 0` & `GPU 1`).
+2. **Single Experiment Wizard**: Interactively select dataset, OSR method, training samples per class (`10` / `50` / `100` / `500` / `Full`), epoch count, seed, and GPU, then run in foreground or background (`nohup`).
+3. **Multi-GPU Sweep Wizard**: Launch parallel benchmark or ablation queues across `GPU 0,1` or execute with `--dry-run`.
+4. **Evaluate Checkpoint (`.h5`)**: Pick any existing `.h5` weight file and evaluate it with zero test-set leakage.
+5. **Results & Summary Tables**: Browse completed experiments (`summary.md`), inspect per-run metrics, or trigger `aggregate.py` with one key (`a`).
+6. **Live Log & Background Task Monitor**: Monitor running processes and tail `.log` / `train.log` files in real time.
+
+## 3. CLI Quick Start
 
 ### Single Training & Evaluation Run
 ```bash
