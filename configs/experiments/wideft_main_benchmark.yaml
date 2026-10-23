@@ -1,0 +1,14 @@
+experiment_name: wideft_main_benchmark
+dataset_config: configs/datasets/wideft_apple_os.yaml
+method_configs:
+  - configs/methods/softmax.yaml
+  - configs/methods/mls.yaml
+  - configs/methods/openmax.yaml
+  - configs/methods/gcpl.yaml
+  - configs/methods/rpl.yaml
+  - configs/methods/arpl.yaml
+  - configs/methods/rarpl.yaml
+split_seeds: [42]
+seeds: [42, 43, 44]
+train_samples_per_class_list: [null]  # null = 3000/class; or [100, 500, 3000]
+gpus: [0, 1]

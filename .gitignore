@@ -1,0 +1,34 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Model checkpoints & experiment outputs
+runs/
+export/
+test_export/
+*.h5
+*.weights.h5
+*.ckpt
+
+# Datasets & large binary files
+dataset/
+*.pickle
+*.pkl
+*.npz
+*.npy
+*.mat
+*.dat
+*.bin
+
+# Logs & generated plots
+*.log
+*.png
+*.jpg
+*.pdf
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

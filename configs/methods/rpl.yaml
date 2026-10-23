@@ -1,0 +1,9 @@
+method:
+  name: rpl
+  backbone: encoderonly_for_arpl
+  use_decoder: false
+  num_features: 10
+  lambda_val: 0.1
+  gamma: 1.0
+  distance_mode: euclidean
+  reg_mode: target_sq

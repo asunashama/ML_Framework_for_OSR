@@ -1,0 +1,38 @@
+task:
+  type: sei_osr
+
+data:
+  name: wideft_apple_os
+  path: /mnt/sbd1_newdisk/project_test_1_22/dataset/source/source_WIDEFT_Apple_OS.pickle
+  split_mode: fixed
+  split_seed: 42
+  num_known: 20
+  num_unknown: 13
+  train_samples_per_class: null   # null uses all 3000/class; override e.g. 100 or 500 for few-shot/subsampled
+  val_samples_per_class: 1000
+  eval_samples_per_class: 500
+  pool_and_resplit: false
+
+augment:
+  enabled: false
+  k_segments: 2
+  phase_mode: flip
+  concat_original: true
+  label_smoothing: 0.0
+
+train:
+  batch_size: 64
+  val_batch_size: 128
+  epochs: 70
+  lr: 0.001
+  steps_per_epoch: 25
+  log_every: 5
+
+calib:
+  mode: fixed_k
+  k_val: 1.5
+
+eval:
+  batch_size: 256
+  cluster_unknowns: true
+  k_grid_report: [0.5, 1.0, 1.5, 2.0]

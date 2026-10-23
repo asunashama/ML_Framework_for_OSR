@@ -1,0 +1,11 @@
+experiment_name: rarpl_ablation
+dataset_config: configs/datasets/wideft_apple_os_100.yaml
+method_configs:
+  - configs/methods/rarpl.yaml
+  - configs/methods/rarpl_no_decoder.yaml
+  - configs/methods/rarpl_no_entropy.yaml
+  - configs/methods/rarpl_no_reg.yaml
+  - configs/methods/rarpl_only_rc.yaml
+split_seeds: [42]
+seeds: [42, 43, 44]
+gpus: [0, 1]

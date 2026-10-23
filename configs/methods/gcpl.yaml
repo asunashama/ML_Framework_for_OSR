@@ -1,0 +1,9 @@
+method:
+  name: gcpl
+  backbone: ae_for_arpl
+  use_decoder: true
+  num_features: 10
+  lambda_val: 0.01
+  mse_weight: 1.0
+  gamma: 1.0
+  recalibrate_prototypes: true

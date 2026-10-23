@@ -1,0 +1,37 @@
+task:
+  type: sei_osr
+
+data:
+  name: comp_fewshot_10train
+  path: /mnt/sbd1_newdisk/project_test_1_22/dataset/competition_dataset/source_COMP_30classes_all.pickle
+  split_mode: random
+  split_seed: 42
+  num_known: 10
+  num_unknown: 10
+  train_samples_per_class: 10
+  val_samples_per_class: 300
+  eval_samples_per_class: 600
+  pool_and_resplit: false
+
+augment:
+  enabled: true
+  k_segments: 2
+  phase_mode: quadrant
+  concat_original: false
+  label_smoothing: 0.2
+
+train:
+  batch_size: 16
+  val_batch_size: 128
+  epochs: 230
+  lr: 0.001
+  log_every: 10
+
+calib:
+  mode: fixed_k
+  k_val: 1.0
+
+eval:
+  batch_size: 128
+  cluster_unknowns: false
+  k_grid_report: [0.5, 1.0, 1.5, 2.0]

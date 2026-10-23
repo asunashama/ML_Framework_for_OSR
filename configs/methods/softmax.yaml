@@ -1,0 +1,5 @@
+method:
+  name: softmax
+  backbone: encoderonly_for_arpl
+  use_decoder: false
+  score_type: prob

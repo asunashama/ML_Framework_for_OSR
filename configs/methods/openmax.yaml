@@ -1,0 +1,7 @@
+method:
+  name: openmax
+  backbone: encoderonly_for_openmax
+  use_decoder: true
+  mse_weight: 1.0
+  tail_size: 50
+  tau: 0.90

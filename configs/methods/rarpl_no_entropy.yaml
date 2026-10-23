@@ -1,0 +1,13 @@
+method:
+  name: rarpl
+  backbone: ae_for_arpl
+  use_decoder: true
+  use_entropy: false
+  use_regularization: true
+  only_reconstruction: false
+  num_features: 10
+  lambda_val: 0.5
+  mse_weight: 1.0
+  gamma: 1.0
+  distance_mode: abs
+  reg_mode: all_classes_hinge
