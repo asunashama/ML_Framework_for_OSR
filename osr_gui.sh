@@ -3,7 +3,9 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 
-if command -v conda >/dev/null 2>&1; then
+if [ -x "/home/IntelligentCommunication/anaconda3/envs/Taopy310/bin/python" ]; then
+    exec /home/IntelligentCommunication/anaconda3/envs/Taopy310/bin/python scripts/tui.py "$@"
+elif command -v conda >/dev/null 2>&1; then
     eval "$(conda shell.bash hook)"
     conda activate Taopy310 2>/dev/null || true
 elif [ -f ~/.bashrc ]; then
@@ -12,4 +14,4 @@ elif [ -f ~/.bashrc ]; then
     conda activate Taopy310 2>/dev/null || true
 fi
 
-python scripts/tui.py "$@"
+exec python scripts/tui.py "$@"
